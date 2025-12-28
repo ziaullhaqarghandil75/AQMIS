@@ -1,0 +1,18 @@
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+ 
+
+@font-face {
+    font-family: 'VxBas';
+    src: url('BahijNazanin-Bold.eot'); /* IE9 Compat Modes */
+    src: url('BahijNazanin-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('BahijNazanin-Bold.woff2') format('woff2'), /* Super Modern Browsers */
+    url('BahijNazanin-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+    url('BahijNazanin-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('BahijNazanin-Bold.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+ 
+  

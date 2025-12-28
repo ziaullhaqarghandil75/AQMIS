@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html dir="rtl" lang="fa" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ 
+    <link href="assets/css/css/bootstrap.rtl.css" rel="stylesheet" />
+    <link href="assets/css/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="assets/css/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+ 
+</head>
+
+<body>
+
+    <main id="pMain" class="containerBlock"  style="padding:100px!important">
+
+        <div class="row mb-3">
+            <label for="EmpDoBG" class="col-md-4 col-lg-4 col-form-label border-bottom">تاریخ:</label>
+            <div class="col-md-6 col-lg-6">
+                <div class="input-group">
+                    <input type="text" class="form-control  jalaali-date-input dtdD" dir="ltr" id="EmpDoBJ" aria-describedby="EmpDoB" />
+                    <input type="text" class="form-control  hijri-date-input dtdD" dir="ltr" id="EmpDoBQ" aria-describedby="EmpDoB" />
+                    <input type="text" class="form-control  m-date-input dtdD" dir="ltr" id="EmpDoBG" aria-describedby="EmpDoB" />
+
+                    <section class="input-group-text dtdM" id="EmpDoB">
+                        <section class="dtdbtn">
+                            <input id="EmpDoB_J" type="radio" name="EmpDoB" class="form-check-input jalaali dtdR" value="J" />
+                            <label class="form-check-label" for="EmpDoB_J">هـ.ش</label>
+                        </section>
+                        <section class="dtdbtn">
+                            <input id="EmpDoB_Q" type="radio" name="EmpDoB" class="form-check-input dtdR" value="Q" />
+                            <label class="form-check-label" for="EmpDoB_Q">هـ.ق</label>
+                        </section>
+                        <section class="dtdbtn">
+                            <input id="EmpDoB_G" type="radio" name="EmpDoB" class="form-check-input dtdR" value="G" />
+                            <label class="form-check-label" for="EmpDoB_G">میلادی</label>
+                        </section>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </main>
+ 
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/momentjs.js"></script>
+    <script src="assets/js/moment-with-locales.js"></script>
+    <script src="assets/js/moment-hijri.js"></script>
+    <script src="assets/js/moment-jalaali.js"></script>
+    <script src="assets/js/bootstrap-hijri-datetimepicker.js"></script>
+    <script src="assets/js/bootstrap-Jalaali-datetimepicker.js"></script>
+    <script src="assets/js/ATT.js?v=9"></script>
+  
+    <script>
+ 
+        $(document).ready(function () {
+            dtdDrp();
+        });
+    </script>
+</body>
+
+</html>
