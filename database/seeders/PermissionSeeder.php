@@ -33,6 +33,22 @@ class PermissionSeeder extends Seeder
             ['name' => 'user_profile', 'description' => 'پروفایل کاربر', 'permission_category_id' => 4],
             ['name' => 'change_password_user', 'description' => 'تغیر رمزعبور', 'permission_category_id' => 4],
             ['name' => 'show_pro_info', 'description' => 'نمایش پروفایل کاربر', 'permission_category_id' => 4],
+            ['name' => 'view_guzar', 'description' => 'گذر', 'permission_category_id' => 5],
+            ['name' => 'add_guzar', 'description' => 'افزودن', 'permission_category_id' => 6],
+            ['name' => 'delete_guzar', 'description' => 'حذف', 'permission_category_id' => 6],
+            ['name' => 'view_block', 'description' => 'بلاک', 'permission_category_id' => 7],
+            ['name' => 'add_block', 'description' => 'افزودن', 'permission_category_id' => 7],
+            ['name' => 'delete_block', 'description' => 'حذف', 'permission_category_id' => 7],
+            ['name' => 'systems_settings', 'description' => 'سیستم', 'permission_category_id' => 5],
+            ['name' => 'view_zone', 'description' => 'زون', 'permission_category_id' => 5],
+            ['name' => 'add_zone', 'description' => 'افزودن', 'permission_category_id' => 8],
+            ['name' => 'edit_zone', 'description' => 'تصحیح', 'permission_category_id' => 8],
+            ['name' => 'delete_zone', 'description' => 'حذف', 'permission_category_id' => 8],
+            ['name' => 'view_land_category', 'description' => 'کتگوری زمین', 'permission_category_id' => 5],
+            ['name' => 'add_land_category', 'description' => 'افزودن', 'permission_category_id' => 9],
+            ['name' => 'edit_land_category', 'description' => 'تصحیح', 'permission_category_id' => 9],
+            ['name' => 'delete_land_category', 'description' => 'حذف', 'permission_category_id' => 9],
+
         ];
 
         foreach ($permissions as $permission) {

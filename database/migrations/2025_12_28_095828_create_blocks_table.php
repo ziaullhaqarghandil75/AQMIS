@@ -20,6 +20,7 @@ return new class extends Migration
                 ->references('id')
                 ->on('guzers');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

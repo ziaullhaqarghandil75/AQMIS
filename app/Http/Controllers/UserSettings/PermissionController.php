@@ -31,15 +31,15 @@ class PermissionController extends Controller
             return view('layouts.403');
         }
         $request->validate([
-            'name' => ['required', 'string'],
-            'description' => ['required', 'string'],
+            'name_fa' => ['required', 'string'],
+            'name_en' => ['required', 'string'],
             'permission_category_id' => ['required', 'exists:permission_categories,id'],
         ]);
         // dd();
 
         $permission                         = new Permission();
-        $permission->name                   = $request->name;
-        $permission->description            = $request->description;
+        $permission->name                   = $request->name_en;
+        $permission->description            = $request->name_fa;
         $permission->permission_category_id = $request->permission_category_id;
         $permission->save();
 

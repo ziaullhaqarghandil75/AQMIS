@@ -20,6 +20,7 @@ return new class extends Migration
                 ->references('id')
                 ->on('districts');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
