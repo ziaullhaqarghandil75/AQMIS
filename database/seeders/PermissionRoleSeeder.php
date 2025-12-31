@@ -14,7 +14,7 @@ class PermissionRoleSeeder extends Seeder
     {
         $role = 1;
 
-        for ($x = 1; $x <= 19; $x++) {
+        for ($x = 1; $x <= 32; $x++) {
             PermissionRole::create([
                 'role_id'       => $role,
                 'permission_id' => $x,
