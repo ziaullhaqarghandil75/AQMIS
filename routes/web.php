@@ -8,6 +8,13 @@ use App\Http\Controllers\UserSettings\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'checkFirstLogin', 'checkPasswordExpired'])->group(function () {
+    //project routes
+    Route::resource('projects', \App\Http\Controllers\ProjectController::class);
+
+
+
+
+
 
     Route::get('changePasswordExpired', [PasswordController::class, 'passwordExpired'])->name('passwordChangeExpired');
     Route::put('changePasswordExpired', [PasswordController::class, 'storeExpiredPassword'])->name('passwordExpiredStore');

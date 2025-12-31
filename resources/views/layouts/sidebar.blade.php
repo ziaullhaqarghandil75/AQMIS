@@ -15,6 +15,30 @@
                        </a>
                    </li>
                    <li class="nav-item nav-item-submenu">
+                       @can('user_settings')
+                       <li class="nav-item nav-item-submenu">
+                           <a href="#" class="nav-link">
+                               <i class="fas fa-user-cog"></i>
+                               <span>پروژها</span>
+                           </a>
+                           <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                               @can('view_user')
+                                   <li class="nav-item">
+                                       <a href="{{ route('projects.create') }}" class="nav-link active">
+                                           <i class="fas fa-user"></i> اضافه کردن پروژها
+                                       </a>
+                                   </li>
+                               @endcan
+                               @can('view_role')
+                                   <li class="nav-item">
+                                       <a href="{{ route('projects.index') }}" class="nav-link">
+                                           <i class="fas fa-users-cog"></i> لیست پروژها
+                                       </a>
+                                   </li>
+                               @endcan
+                           </ul>
+                       </li>
+                   @endcan
                    @can('user_settings')
                        <li class="nav-item nav-item-submenu">
                            <a href="#" class="nav-link">
