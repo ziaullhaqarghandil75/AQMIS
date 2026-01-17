@@ -12,7 +12,8 @@ class BuildingCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $building_categories = buildingCategory::all();
+        return view('building_category.index', compact('building_categories'));
     }
 
     /**
@@ -20,7 +21,7 @@ class BuildingCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('building_category.create');
     }
 
     /**
@@ -28,7 +29,14 @@ class BuildingCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'building_Category_Type_Name' => 'required|string:max:255',
+            'building_Category_details' => 'required|string:max:255',
+            'building_Category_unit_type' => 'required|string:max:255',
+            'building_Category_unit_Price' => 'required|integer',
+        ]);
+        buildingCategory::create($request->all());
+        return redirect()->route('buildingCategory.index')->with('success', 'Building Category created successfully.');
     }
 
     /**
@@ -44,7 +52,8 @@ class BuildingCategoryController extends Controller
      */
     public function edit(buildingCategory $buildingCategory)
     {
-        //
+        // dd($buildingCategory);
+        return view('building_category.edit', compact('buildingCategory'));
     }
 
     /**
@@ -52,7 +61,14 @@ class BuildingCategoryController extends Controller
      */
     public function update(Request $request, buildingCategory $buildingCategory)
     {
-        //
+        $request->validate([
+            'building_Category_Type_Name' => 'required|string:max:255',
+            'building_Category_details' => 'required|string:max:255',
+            'building_Category_unit_type' => 'required|string:max:255',
+            'building_Category_unit_Price' => 'required|integer',
+        ]);
+        $buildingCategory->update($request->all());
+        return redirect()->route('buildingCategory.index')->with('success', 'Building Category updated successfully.');
     }
 
     /**
@@ -60,6 +76,7 @@ class BuildingCategoryController extends Controller
      */
     public function destroy(buildingCategory $buildingCategory)
     {
-        //
+        $buildingCategory->delete();
+        return redirect()->route('buildingCategory.index')->with('success', 'Building Category deleted successfully.');
     }
 }

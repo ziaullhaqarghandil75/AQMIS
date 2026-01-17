@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('propertys', function (Blueprint $table) {
+        Schema::create('properties', function (Blueprint $table) {
             $table->id();
             $table->string('property_Location');
             $table->string('property_house_Number');
@@ -24,11 +24,12 @@ return new class extends Migration
             $table->string('property_West');
             $table->string('property_Parcel_Number');
             $table->string('property_Code_Number');
+            $table->dateTime('Property_Pricing_Date');
             // foreign key
-            $table->unsignedBigInteger('person_id');
-            $table->foreign('person_id')
+            $table->unsignedBigInteger('owner_id');
+            $table->foreign('owner_id')
                 ->references('id')
-                ->on('persons');
+                ->on('owners');
             $table->unsignedBigInteger('project_id');
             $table->foreign('project_id')
                 ->references('id')
@@ -46,6 +47,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('propertys');
+        Schema::dropIfExists('properties');
     }
 };

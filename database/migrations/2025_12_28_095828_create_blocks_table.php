@@ -15,11 +15,12 @@ return new class extends Migration
             $table->id();
             $table->integer('block_Number');
             // foreign key
-            $table->unsignedBigInteger('guzer_id');
-            $table->foreign('guzer_id')
+            $table->unsignedBigInteger('guzar_id');
+            $table->foreign('guzar_id')
                 ->references('id')
-                ->on('guzers');
+                ->on('guzars');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

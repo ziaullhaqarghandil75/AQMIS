@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('property_values', function (Blueprint $table) {
             $table->id();
-            $table->float('Number_of_Floors');
+            $table->float('Number_of_Floors')->nullable();
             $table->float('Scale');
             // foreign keys
             $table->unsignedBigInteger('emarat_type_id');
@@ -23,15 +23,15 @@ return new class extends Migration
             $table->unsignedBigInteger('property_id');
             $table->foreign('property_id')
                 ->references('id')
-                ->on('propertys');
-            $table->unsignedBigInteger('land_category_id')->nullable();
-            $table->foreign('land_category_id')
+                ->on('properties');
+            $table->unsignedBigInteger('land_categories_id')->nullable();
+            $table->foreign('land_categories_id')
                 ->references('id')
-                ->on('land_categorys');
+                ->on('land_categories');
             $table->unsignedBigInteger('building_category_id')->nullable();
             $table->foreign('building_category_id')
                 ->references('id')
-                ->on('building_categorys');
+                ->on('building_categories');
             $table->timestamps();
         });
     }

@@ -11,15 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('guzers', function (Blueprint $table) {
+        Schema::create('land_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('guzer_Number');
+            $table->string('land_Category_Name');
+            $table->string('land_category_location');
+            $table->float('land_category_unit_Price');
             // foreign key
-            $table->unsignedBigInteger('district_id');
-            $table->foreign('district_id')
+            $table->unsignedBigInteger('zone_id');
+            $table->foreign('zone_id')
                 ->references('id')
-                ->on('districts');
+                ->on('zones');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('guzers');
+        Schema::dropIfExists('land_categorys');
     }
 };

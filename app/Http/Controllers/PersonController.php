@@ -2,64 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\person;
 use Illuminate\Http\Request;
+use App\Models\person;
 
-class PersonController extends Controller
+class personController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $persons = person::all();
+        return view('persons.index', compact('persons'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('person.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(person $person)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(person $person)
     {
-        //
+        
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, person $person)
     {
-        //
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(person $person)
     {
-        //
+        $person->delete();
+        return redirect()->route('persons.index')->with('success', 'person deleted successfully.');
     }
 }

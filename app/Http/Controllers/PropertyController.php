@@ -2,8 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Property;
+use App\Models\buildingCategory;
+use App\Models\property;
+use App\Models\owner;
+use App\Models\project;
+use App\Models\district;
+use App\Models\emaratType;
 use Illuminate\Http\Request;
+use ZipArchive;
+use Illuminate\Support\Str;
 
 class PropertyController extends Controller
 {
@@ -12,7 +19,8 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        //
+        $properties = property::all();
+        return view('property.index', compact('properties'));
     }
 
     /**
@@ -20,7 +28,11 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        //
+        $owners = owner::all();
+        $projects = project::all();
+        $disticts = district::all();
+
+        return view('property.create', compact('owners', 'projects', 'disticts'));
     }
 
     /**
@@ -28,7 +40,27 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'property_Location' => 'required',
+            'property_house_Number' => 'required',
+            'property_plan_Number' => 'required',
+            'property_remarks' => 'required',
+            'Property_Pricing_Date' => 'required',
+            'property_sketch_image' => 'required',
+            'property_North' => 'required',
+            'property_South' => 'required',
+            'property_East' => 'required',
+            'property_West' => 'required',
+            'property_Parcel_Number' => 'required',
+            'property_Code_Number' => 'required',
+            'owner_id' => 'required',
+            'project_id' => 'required',
+            'block_id' => 'required',
+        ]);
+
+
+        property::create($request->all());
+        return redirect()->route('properties.index')->with('success', 'Property created successfully.');
     }
 
     /**
@@ -36,29 +68,63 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
-        //
+        $property->load([
+            'propertyValue' => function ($propertyValue) {
+                $propertyValue->with([
+                    'emaratType',
+                    'buildingCategory',
+                    'landCategory'
+                ]);
+            },
+            'block',
+            'owner',
+            'project'
+        ]);
+        // dd($property);
+        return view('property.show', compact('property'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Property $property)
+    public function edit(property $property)
     {
-        //
+        $owners = owner::all();
+        $projects = project::all();
+        $disticts = district::all();
+        return view('property.edit', compact('property', 'owners', 'projects', 'disticts'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Property $property)
+    public function update(Request $request, property $property)
     {
-        //
+        $request->validate([
+            'property_Location' => 'required',
+            'property_house_Number' => 'required',
+            'property_plan_Number' => 'required',
+            'property_remarks' => 'required',
+            'Property_Pricing_Date' => 'required',
+            'property_sketch_image' => 'required',
+            'property_North' => 'required',
+            'property_South' => 'required',
+            'property_East' => 'required',
+            'property_West' => 'required',
+            'property_Parcel_Number' => 'required',
+            'property_Code_Number' => 'required',
+            'owner_id' => 'required',
+            'project_id' => 'required',
+            'block_id' => 'required',
+        ]);
+        $property->update($request->all());
+        return redirect()->route('properties.index')->with('success', 'Property updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Property $property)
+    public function destroy(property $property)
     {
         //
     }

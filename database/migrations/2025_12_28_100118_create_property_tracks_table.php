@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('property_id');
             $table->foreign('property_id')
                 ->references('id')
-                ->on('propertys');
+                ->on('properties');
             $table->unsignedBigInteger('process_id');
             $table->foreign('process_id')
                 ->references('id')
