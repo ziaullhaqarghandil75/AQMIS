@@ -80,7 +80,6 @@ class PropertyController extends Controller
             'owner',
             'project'
         ]);
-        // dd($property);
         return view('property.show', compact('property'));
     }
 
